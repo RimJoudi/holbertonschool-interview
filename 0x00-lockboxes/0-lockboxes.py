@@ -11,9 +11,7 @@ def canUnlockAll(boxes):
     key = [0]
     keys = set()
 
-    if boxes[0] == []:
-        return False
-    elif not isinstance(boxes, list):
+    if boxes[0] == [] or not isinstance(boxes, list):
         return False
 
     while key:
