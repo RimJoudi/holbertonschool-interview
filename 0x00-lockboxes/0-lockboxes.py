@@ -7,13 +7,10 @@ def canUnlockAll(boxes):
     method that determinesif all the boxes can be opened.
     '''
     n = len(boxes)
-
     key = [0]
     keys = set()
-
     if boxes[0] == [] or not isinstance(boxes, list):
         return False
-
     while key:
         u = key.pop()
         keys.add(u)
