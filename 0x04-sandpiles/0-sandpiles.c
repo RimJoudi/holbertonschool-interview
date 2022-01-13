@@ -61,8 +61,8 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 /**
  * copy_grid - function that copy the data of the first matrix into the
  * second that have 3x3 dimension
- * @matrix1: the first grid
- * @matrix2: the second grid
+ * @grid1: the first grid
+ * @grid2: the second grid
  * Return: void
  */
 void copy_grid(int grid1[3][3], int grid2[3][3])
@@ -108,7 +108,7 @@ void simple_sand_sum(int grid1[3][3], int grid2[3][3])
  */
 void make_topple(int grid[3][3], int i, int j)
 {
-	
+
 	grid[i][j] -= 4;
 
 	if (i + 1 < 3)
@@ -123,12 +123,12 @@ void make_topple(int grid[3][3], int i, int j)
 	}
 	if (j + 1 < 3)
 	{
-		
+
 		grid[i][j + 1]++;
 	}
 	if (j - 1 >= 0)
 	{
-		
+
 		grid[i][j - 1]++;
 	}
 
