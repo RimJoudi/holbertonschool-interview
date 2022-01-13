@@ -2,8 +2,8 @@
 
 /**
  * print_grid - function that print a grid
- * @grid: the first sandpile
- * Return: none
+ * @grid: the first grid
+ * Return: void
  */
 static void print_grid(int grid[3][3])
 {
@@ -80,11 +80,11 @@ void copy_grid(int grid1[3][3], int grid2[3][3])
 
 
 /**
- * simple_sand_sum - function that computes the sum of two sandpiles 3*3
+ * simple_sand_sum - function that computes the sum of two sandpiles 3x3
  * without topple
  * @grid1: the first grid
  * @grid2: the second grid
- * Return: none
+ * Return: void
  */
 void simple_sand_sum(int grid1[3][3], int grid2[3][3])
 {
