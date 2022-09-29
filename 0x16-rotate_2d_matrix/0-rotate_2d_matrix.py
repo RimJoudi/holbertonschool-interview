@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-fn that rotates 2D matrix 90 degrees clockwise in place 
+fn that rotates 2D matrix 90 degrees clockwise in place
 """
 
 
