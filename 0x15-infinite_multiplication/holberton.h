@@ -9,4 +9,6 @@ int _strlen(char *string);
 int _isdigit(char *string);
 long int _atoi(char *string, int len);
 
+int _putchar(char c);
+
 #endif

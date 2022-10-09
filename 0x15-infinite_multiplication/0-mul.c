@@ -28,8 +28,8 @@ int main(int argc, char **argv)
 
 	if ((_isdigit(argv[1]) == 0) && (_isdigit(argv[2]) == 0))
 	{
-	num1_len = _strlen(argv[1]);
-	num2_len = _strlen(argv[2]);
+		num1_len = _strlen(argv[1]);
+		num2_len = _strlen(argv[2]);
 	}
 
 	if ((num1_len + num2_len) < 10)
@@ -41,7 +41,6 @@ int main(int argc, char **argv)
 
 	return (0);
 }
-
 
 /**
  * _strlen - checks the length of the string
@@ -74,7 +73,8 @@ int _isdigit(char *string)
 		{
 			printf("Error\n");
 			exit(98);
-		} else
+		}
+		else
 		{
 			continue;
 		}
@@ -86,7 +86,7 @@ int _isdigit(char *string)
  * _atoi - convert a string to a number
  * @string: a string of chars
  * @len: length of the string
- * Return: a number 
+ * Return: a number
  */
 long int _atoi(char *string, int len)
 {
