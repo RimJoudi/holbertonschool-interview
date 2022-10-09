@@ -1,101 +1,94 @@
 #include "holberton.h"
+
 /**
- * main - Take in two numbers and attempt to
- *        multiply them
- * @argc: an int count of arguments
- * @argv: an array of arguments
- * Return: 0
- */
-
-int main(int argc, char **argv)
+ * is_digit - checks if the argument is a number
+ * @c: argument
+ * Return: 0 on success, otherwise 1
+ **/
+int is_digit(char *c)
 {
+	while (*c)
+	{
+		if (*c < '0' || *c > '9')
+			return (0);
+		c++;
+	}
+	return (1);
+}
 
-	int num1_len, num2_len;
-	long int num1, num2;
+/**
+ * _strlen - find the length of the a string
+ * @s: a string
+ * Return: the length of the string
+ **/
+int _strlen(char *s)
+{
+	char *ptr = s;
 
-	if (argc != 3)
+	while (*s)
+		s++;
+	return (s - ptr);
+}
+
+/**
+ * multiply - multiplies two numbers
+ * @a: first number
+ * @b: second number
+ * Return: Nothing
+ **/
+void multiply(char *a, char *b)
+{
+	int i, len_a, len_b, total, a_number, b_number, res = 0, tmp;
+	int *ptr;
+
+	len_a = _strlen(a);
+	len_b = _strlen(b);
+	tmp = len_b;
+	total = len_a + len_b;
+	ptr = malloc(sizeof(int) * total);
+	if (!ptr)
+		return;
+	for (len_a--; len_a >= 0; len_a--)
+	{
+		a_number = a[len_a] - '0';
+		res = 0;
+		len_b = tmp;
+		for (len_b--; len_b >= 0; len_b--)
+		{
+			b_number = b[len_b] - '0';
+			res += ptr[len_b + len_a + 1] + (a_number * b_number);
+			ptr[len_a + len_b + 1] = res % 10;
+			res /= 10;
+		}
+		if (res)
+			ptr[len_a + len_b + 1] = res % 10;
+	}
+	while (*ptr == 0)
+	{
+		ptr++;
+		total--;
+	}
+	for (i = 0; i < total; i++)
+		printf("%i", ptr[i]);
+	printf("\n");
+}
+
+/**
+ * main - Entry point, program that multiplies two positive numbers
+ * @argc: argument count
+ * @argv: argument values
+ * Return: 0 on success
+ **/
+int main(int argc, char *argv[])
+{
+	char *num1 = argv[1];
+	char *num2 = argv[2];
+
+	if (argc != 3 || !is_digit(num1) || !is_digit(num2))
 	{
 		printf("Error\n");
 		exit(98);
 	}
-
-	if ((argv[1] - '0') == 0 || (argv[2] - '0') == 0)
-	{
-		printf("0\n");
-		printf("0\n");
-		exit(0);
-	}
-
-	if ((_isdigit(argv[1]) == 0) && (_isdigit(argv[2]) == 0))
-	{
-		num1_len = _strlen(argv[1]);
-		num2_len = _strlen(argv[2]);
-	}
-
-	if ((num1_len + num2_len) < 10)
-	{
-		num1 = _atoi(argv[1], num1_len);
-		num2 = _atoi(argv[2], num2_len);
-		printf("%ld\n", num1 * num2);
-	}
-
+	multiply(num1, num2);
 	return (0);
-}
-
-/**
- * _strlen - checks the length of the string
- * @string: a string of digits, hopefully
- * Return: the clength of the string
- */
-int _strlen(char *string)
-{
-	int i = 0;
-
-	while (string[i] != '\0')
-	{
-		i++;
-	}
-	return (i - 1);
-}
-
-/**
- * _isdigit - make sure all chars in a string are numeric
- * @string: a string of chars
- * Return: 0 if all digits
- */
-int _isdigit(char *string)
-{
-	int i;
-
-	for (i = 0; string[i] != '\0'; i++)
-	{
-		if ((string[i] < 48) || (string[i] > 57))
-		{
-			printf("Error\n");
-			exit(98);
-		}
-		else
-		{
-			continue;
-		}
-	}
-	return (0);
-}
-
-/**
- * _atoi - convert a string to a number
- * @string: a string of chars
- * @len: length of the string
- * Return: a number
- */
-long int _atoi(char *string, int len)
-{
-	long int num = 0;
-	int i;
-
-	for (i = 0; i <= len; i++)
-	{
-		num = (num * 10) + (string[i] - '0');
-	}
-	return (num);
 }
