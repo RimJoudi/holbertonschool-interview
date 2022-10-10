@@ -1,7 +1,10 @@
-import requests
+#!/usr/bin/python3
 """
 0-count
 """
+
+import requests
+
 
 def count_words(subreddit, word_list, hot_list_titles=[], after='null'):
     """
