@@ -33,7 +33,6 @@ def count_words(subreddit, word_list, after='', words_counting={}):
     else:
         if not len(words_counting) > 0:
             return
-        i = sorted(words_counting.items(),
-                          key=lambda kv: (-kv[1], kv[0]))
+        i = sorted(words_counting.items(), key=lambda kv: (-kv[1], kv[0]))
         for key, value in i:
             print('{}: {}'.format(key.lower(), value))
