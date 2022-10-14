@@ -8,8 +8,8 @@
 void swap(int *x, int *y)
 {
 	int tmp = *x;
-    *x = *y;
-    *y = tmp;
+	*x = *y;
+	*y = tmp;
 }
 
 /**
@@ -43,7 +43,7 @@ void max_h(int *array, int index, int size, int len)
  *             order using the Heap sort algorithm
  * @array: array of integers to sort
  * @size: size of the array
- * 
+ *
  */
 void heap_sort(int *array, size_t size)
 {
@@ -63,5 +63,4 @@ void heap_sort(int *array, size_t size)
 		max_h(array, 0, size, end);
 		end--;
 	}
-
 }
