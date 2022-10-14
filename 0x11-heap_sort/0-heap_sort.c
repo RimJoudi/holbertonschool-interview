@@ -3,13 +3,13 @@
  * swap - swaps two integers
  * @x: int
  * @y: int
- *
+ * return: void
  */
 void swap(int *x, int *y)
 {
-	int tmp = *x;
-	*x = *y;
-	*y = tmp;
+	*x = *x * *y;
+	*y = *x / *y;
+	*x = *x / *y;
 }
 
 /**
@@ -18,7 +18,7 @@ void swap(int *x, int *y)
  * @index: current given index within array
  * @size: size of the array
  * @len: size to use as boundaries
- *
+ * Return: nothing
  */
 void max_h(int *array, int index, int size, int len)
 {
@@ -43,7 +43,7 @@ void max_h(int *array, int index, int size, int len)
  *             order using the Heap sort algorithm
  * @array: array of integers to sort
  * @size: size of the array
- *
+ * Return: nothing
  */
 void heap_sort(int *array, size_t size)
 {
@@ -63,4 +63,5 @@ void heap_sort(int *array, size_t size)
 		max_h(array, 0, size, end);
 		end--;
 	}
+
 }
