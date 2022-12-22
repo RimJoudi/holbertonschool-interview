@@ -8,7 +8,8 @@
  * @words: is the array of words all substrings must be a concatenation
  * arrangement of
  * @nb_words: is the number of elements in the array words
- * @n: holds the address at which to store the number of elements in the returned array
+ * @n: holds the address at which to store the number
+ * of elements in the returned array
  *
  * Return:  an allocated array, storing each index in s, at which a
  * substring was found. If no solution is found, NULL can be returned
